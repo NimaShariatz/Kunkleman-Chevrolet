@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders', # - so that api with ReactJS works
+    'rest_framework', # - simplifies code for views.py
     'accounts', # - accounts app
 ]
 AUTH_USER_MODEL = "accounts.User"

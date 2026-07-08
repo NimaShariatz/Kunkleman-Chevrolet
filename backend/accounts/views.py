@@ -1,34 +1,35 @@
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 from django.contrib.auth import get_user_model
-from django.http import JsonResponse
-import json
+
+
 
 User = get_user_model()
 
 
-@csrf_exempt
+@api_view(['POST'])
 def signup(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        username = data.get("username")
-        password = data.get("password")
+  username = request.data.get('username')
+  password = request.data.get('password')
 
-        if User.objects.filter(username=username).exists():
-            return JsonResponse({"error": "Username already taken"}, status=400)
+  if not username or not password:
+    return Response({"error": "Username and password are required"}, status=status.HTTP_400_BAD_REQUEST)
 
-        user = User.objects.create_user(
-            username=username,
-            password=password,
-            email=data.get("email", ""),
-            user_type="U",
-            city=data.get("city", ""),
-            province=data.get("province", ""),
-            street_name=data.get("street_name", ""),
-            postal_code=data.get("postal_code", ""),
-        )
-        return JsonResponse({"message": "User created"}, status=201)
+  if User.objects.filter(username=username).exists():
+    return Response({"error": "Username already taken"}, status=status.HTTP_400_BAD_REQUEST)
 
-    return JsonResponse({"error": "Method not allowed"}, status=405)
+  User.objects.create_user(
+    username=username,
+    password=password,
+    email=request.data.get('email', ''),
+    user_type='U',
+    city=request.data.get('city', ''),
+    province=request.data.get('province', ''),
+    street_name=request.data.get('street_name', ''),
+    postal_code=request.data.get('postal_code', ''),
+  )
+  return Response({"message": "User created"}, status=status.HTTP_201_CREATED)
 
 
 
