@@ -1,14 +1,25 @@
+import { Routes, Route } from 'react-router-dom'
+import './index.css'
+import Login from './pages/login/login'
+import Signup from './pages/login/signup'
 
 
 function App() {
-  /* install router, create a backend superuser, make both types of users, set up login between backend and frontend & login page  */
+  /* install router & setup pages, create a backend superuser, make both types of users, set up login between backend and frontend & login page  */
 
 
 
 
   return (
   <>
+    <Routes>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/signup' element={<Signup/>}/>
+      
 
+
+
+    </Routes>
   </>
   )
 }

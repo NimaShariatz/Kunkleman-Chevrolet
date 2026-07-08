@@ -25,7 +25,20 @@ SECRET_KEY = 'django-insecure-88fl92-+2kt%&nm-*y*elr7uk7vr_7ug+alnzfnhn!4dki3z5k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
+
+
 ALLOWED_HOSTS = []
+CORS_ALLOWED_ORIGINS = [ # - so that api with ReactJS works
+    "http://localhost:5173",
+]
+CSRF_TRUSTED_ORIGINS = [ # - otherwise we get 403 forbidden errors from backend
+    "http://localhost:5173",
+]
+
+
+
 
 
 # Application definition
@@ -37,12 +50,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders', # - so that api with ReactJS works
+    'accounts', # - accounts app
 ]
+AUTH_USER_MODEL = "accounts.User"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # - so that api with ReactJS works
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -115,3 +132,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
