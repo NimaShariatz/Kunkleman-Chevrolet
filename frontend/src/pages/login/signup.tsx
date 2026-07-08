@@ -2,30 +2,24 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./signup.css"
+import { sendSignupInfo } from '../../api/signup'
+
 
 function Signup() {
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [city, setCity] = useState("")
-  const [province, setProvince] = useState("")
-  const [streetName, setStreetName] = useState("")
-  const [postalCode, setPostalCode] = useState("")
   const [error, setError] = useState("")
   const navigate = useNavigate()
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
+  async function handleSubmit(formData: FormData) {
     setError("")
-
     try {
-      await axios.post("http://localhost:8000/api/signup/", {
-        username,
-        password,
-        city,
-        province,
-        street_name: streetName,
-        postal_code: postalCode,
+      await sendSignupInfo({
+        username:    formData.get('username') as string,
+        email:       formData.get('email') as string,
+        password:    formData.get('password') as string,
+        city:        formData.get('city') as string,
+        province:    formData.get('province') as string,
+        street_name: formData.get('street_name') as string,
+        postal_code: formData.get('postal_code') as string,
       })
       navigate("/login")
     } catch (err) {
@@ -36,34 +30,27 @@ function Signup() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form action={handleSubmit}>
         <label>Username</label>
-        <input required type="text" placeholder="Username" autoComplete="username"
-          value={username} onChange={e => setUsername(e.target.value)} />
+        <input required type="text" name="username" placeholder="Username" autoComplete="username" />
 
         <label>Email</label>
-        <input required type="email" placeholder="Email" autoComplete="email"
-          value={email} onChange={e => setEmail(e.target.value)} />
+        <input required type="email" name="email" placeholder="Email" autoComplete="email" />
 
         <label>Password</label>
-        <input required type="password" minLength={9} placeholder="Password" autoComplete="new-password"
-          value={password} onChange={e => setPassword(e.target.value)} />
+        <input required type="password" name="password" minLength={9} placeholder="Password" autoComplete="new-password" />
 
         <label>Street Name</label>
-        <input required type="text" placeholder="Street Name"
-          value={streetName} onChange={e => setStreetName(e.target.value)} />
+        <input required type="text" name="street_name" placeholder="Street Name" />
 
         <label>City</label>
-        <input required type="text" placeholder="City"
-          value={city} onChange={e => setCity(e.target.value)} />
+        <input required type="text" name="city" placeholder="City" />
 
         <label>Province</label>
-        <input required type="text" placeholder="Province"
-          value={province} onChange={e => setProvince(e.target.value)} />
+        <input required type="text" name="province" placeholder="Province" />
 
         <label>Postal Code</label>
-        <input required type="text" placeholder="A1A 1A1" maxLength={7}
-          value={postalCode} onChange={e => setPostalCode(e.target.value)} />
+        <input required type="text" name="postal_code" placeholder="A1A 1A1" maxLength={7} />
 
         {error && <p>{error}</p>}
         <button type="submit">Sign Up</button>
