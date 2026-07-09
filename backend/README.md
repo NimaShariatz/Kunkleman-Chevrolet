@@ -5,7 +5,7 @@ After creating a virtual environment, did `python -m pip install Django`. You ca
 `python manage.py makemigrations` & `python manage.py migrate` -> commit changes from models to SQLite 
 
 
-
+`python manage.py createsuperuser` -> creates django admin
 
 
 
@@ -17,7 +17,7 @@ After creating a virtual environment, did `python -m pip install Django`. You ca
 # Account Stuff
 
 ### Django Admin
-- Username: CoreAdmin Password: Goofy6540 Email: nimashariat77@gmail.com
+- Username: CoreAdmin Email: nimashariat77@gmail.com Password: Goofy6540
 
 # Libraries
 - django-cors-headers: to avoid the 403 forbidden errors that are raised by using ReactJS as frontend

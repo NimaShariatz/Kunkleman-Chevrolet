@@ -13,7 +13,8 @@ function Signup() {
     setError("")
     try {
       await sendSignupInfo({
-        username:    formData.get('username') as string,
+        first_name:    formData.get('first_name') as string,
+        last_name:    formData.get('last_name') as string,
         email:       formData.get('email') as string,
         password:    formData.get('password') as string,
         city:        formData.get('city') as string,
@@ -31,8 +32,11 @@ function Signup() {
   return (
     <>
       <form action={handleSubmit}>
-        <label>Username</label>
-        <input required type="text" name="username" placeholder="Username" autoComplete="username" />
+        <label>First Name</label>
+        <input required type="text" name="first_name" placeholder="first name" autoComplete="First Name" />
+
+        <label>Last Name</label>
+        <input required type="text" name="last_name" placeholder="last name" autoComplete="Last Name" />
 
         <label>Email</label>
         <input required type="email" name="email" placeholder="Email" autoComplete="email" />

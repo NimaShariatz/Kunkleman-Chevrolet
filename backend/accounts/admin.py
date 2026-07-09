@@ -12,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
     )
     add_fieldsets = UserAdmin.add_fieldsets + ( #for the admin/ "create user" page
         ('Additional Info', {
-            'fields': ('email', 'user_type', 'city', 'province', 'street_name', 'postal_code')
+            'fields': ('email', 'first_name', 'last_name', 'user_type', 'city', 'province', 'street_name', 'postal_code')
         }),
     )
 

@@ -4,7 +4,8 @@ import api from '.';
 
 
 interface SignupData {
-  username: string
+  first_name: string
+  last_name: string
   email: string
   password: string
   city: string

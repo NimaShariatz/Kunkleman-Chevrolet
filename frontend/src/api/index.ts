@@ -1,9 +1,16 @@
 import axios from 'axios'
 
+/*
+  # Purpose: setup to have axios work
+*/
 const api = axios.create({
   baseURL: 'http://localhost:8000/api',
 })
 
+/*
+  # Purpose: every time api.get or api.post is called, this runs and attaches the access token from localstorage
+  to the authorization header. the backend will read the header to identify whose making the request
+*/
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('access')
   if (token) {
@@ -12,20 +19,23 @@ api.interceptors.request.use((config) => {
   return config
 })
 
+
+
+
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const original = error.config
     if (error.response?.status === 401 && !original._retry) {
       original._retry = true
-      const refresh = localStorage.getItem('refresh')
+      const refresh = localStorage.getItem('refresh') // get the refresh token
       if (refresh) {
         try {
-          const res = await axios.post('http://localhost:8000/api/token/refresh/', { refresh })
+          const res = await axios.post('http://localhost:8000/api/token/refresh/', { refresh })// calls api/token/refresh
           localStorage.setItem('access', res.data.access)
           original.headers.Authorization = `Bearer ${res.data.access}`
           return api(original)
-        } catch {
+        } catch { // on failure, if token is expired/valid, clears both tokens and hard redirects to /login
           localStorage.removeItem('access')
           localStorage.removeItem('refresh')
           window.location.href = '/login'
