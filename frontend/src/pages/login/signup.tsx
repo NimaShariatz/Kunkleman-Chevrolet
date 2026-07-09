@@ -9,7 +9,7 @@ function Signup() {
   const [error, setError] = useState("")
   const navigate = useNavigate()
 
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(formData: FormData) { //this is different if you were to use React v18. it would use `e: React.FormEvent<HTMLFormElement>`
     setError("")
     try {
       await sendSignupInfo({
@@ -26,7 +26,7 @@ function Signup() {
       const errorMessage = axios.isAxiosError(err) ? err.response?.data?.error : "Signup failed"
       setError(errorMessage || "Signup failed")
     }
-  }
+  }//handleSubmit
 
   return (
     <>

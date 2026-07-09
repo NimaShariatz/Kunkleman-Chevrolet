@@ -2,12 +2,15 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import get_user_model
-
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 
 User = get_user_model()
 
-
+# Purpose: the view for signup.tsx. If succesful, will create the account
+# Input: a request send by frontend by onsubmit
+# Output: a success or fail message
 @api_view(['POST'])
 def signup(request):
   username = request.data.get('username')
@@ -33,4 +36,17 @@ def signup(request):
 
 
 
-# Create your views here.
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def me(request):
+  user = request.user
+  return Response({
+    "username":    user.username,
+    "email":       user.email,
+    "city":        user.city,
+    "province":    user.province,
+    "street_name": user.street_name,
+    "postal_code": user.postal_code,
+    "user_type":   user.user_type,
+  })
