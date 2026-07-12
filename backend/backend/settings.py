@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_spectacular', # - documentation
     'corsheaders', # - so that api with ReactJS works
     'rest_framework', # - simplifies code for views.py
     'accounts', # - accounts app
@@ -61,6 +62,7 @@ REST_FRAMEWORK = { # - for using Djangorestframework-simplejwt
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',  # - drf documentation
 }
 SIMPLE_JWT = { # - for using Djangorestframework-simplejwt
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),

@@ -13,7 +13,6 @@ After creating a virtual environment, did `python -m pip install Django`. You ca
 
 
 
-
 # Account Stuff
 
 ### Django Admin
@@ -27,3 +26,4 @@ so no need to have `@csrf_exempt`, or `json.loads(request.body)`. use `request.d
 
 - djangorestframework-simplejwt: for stateless session tracking and login shinanigans. can use rest_framework.authtoken if you want it to be stateful
 
+- drf-spectacular: creates api documentation. see http://localhost:8000/api/docs/.

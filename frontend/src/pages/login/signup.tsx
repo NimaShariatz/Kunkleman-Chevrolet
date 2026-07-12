@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import "./signup.css"
 import { sendSignupInfo } from '../../api/signup'
-
+import styles from "./signup.module.css"
+import { cheviHalftone } from "../../constants"
 
 function Signup() {
   const [error, setError] = useState("")
@@ -29,37 +29,58 @@ function Signup() {
     }
   }//handleSubmit
 
+
+
+
+
+
   return (
-    <>
-      <form action={handleSubmit}>
-        <label>First Name</label>
-        <input required type="text" name="first_name" placeholder="first name" autoComplete="First Name" />
+   
+  <main>
 
-        <label>Last Name</label>
-        <input required type="text" name="last_name" placeholder="last name" autoComplete="Last Name" />
+    <div className={styles.content}>
+    <div className={styles.contentContainer}>
 
-        <label>Email</label>
-        <input required type="email" name="email" placeholder="Email" autoComplete="email" />
+      <div className={styles.formContainer}>
+        <form action={handleSubmit}>
+          <label>First Name</label>
+          <input required type="text" name="first_name" placeholder="first name" autoComplete="First Name" />
 
-        <label>Password</label>
-        <input required type="password" name="password" minLength={9} placeholder="Password" autoComplete="new-password" />
+          <label>Last Name</label>
+          <input required type="text" name="last_name" placeholder="last name" autoComplete="Last Name" />
 
-        <label>Street Name</label>
-        <input required type="text" name="street_name" placeholder="Street Name" />
+          <label>Email</label>
+          <input required type="email" name="email" placeholder="Email" autoComplete="email" />
 
-        <label>City</label>
-        <input required type="text" name="city" placeholder="City" />
+          <label>Password</label>
+          <input required type="password" name="password" minLength={9} placeholder="Password" autoComplete="new-password" />
 
-        <label>Province</label>
-        <input required type="text" name="province" placeholder="Province" />
+          <label>Street Name</label>
+          <input required type="text" name="street_name" placeholder="Street Name" />
 
-        <label>Postal Code</label>
-        <input required type="text" name="postal_code" placeholder="A1A 1A1" maxLength={7} />
+          <label>City</label>
+          <input required type="text" name="city" placeholder="City" />
 
-        {error && <p>{error}</p>}
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+          <label>Province</label>
+          <input required type="text" name="province" placeholder="Province" />
+
+          <label>Postal Code</label>
+          <input required type="text" name="postal_code" placeholder="A1A 1A1" maxLength={7} />
+
+          {error && <p>{error}</p>}
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+
+      <div className={styles.imgContainer}>
+        <img src={cheviHalftone}/>
+      </div>
+
+    </div>
+    </div>
+
+  </main>
+    
   )
 }
 

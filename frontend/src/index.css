@@ -1,10 +1,28 @@
 :root {
-  --text: #100f0c;
-  --background: #f9f8f3;
-  --primary: #c5ae51;
-  --secondary: #f1e1a2;
-  --accent: #f2d251;
+  --text: #13120e;
+  --background: #fcfbf9;
+  --primary: #ffd979;
+  --secondary: #ffe6a8;
+  --accent: #fbc742;
+
+  --linearPrimarySecondary: linear-gradient(#ffd97a, #ffe6a8);
+  --linearPrimaryAccent: linear-gradient(#ffd97a, #fbc641);
+  --linearSecondaryAccent: linear-gradient(#ffe6a8, #fbc641);
+  --radialPrimarySecondary: radial-gradient(#ffd97a, #ffe6a8);
+  --radialPrimaryAccent: radial-gradient(#ffd97a, #fbc641);
+  --radialSecondaryAccent: radial-gradient(#ffe6a8, #fbc641);
+
+  --opac1: #ffd97a15;
+  --opac2: #ffd97a44;
+
+  
+
+
+
+
 }
+
+
 
 *{
   padding: 0;
@@ -20,5 +38,5 @@ img{
 
 
 body {
-  
+  background-color: var(--background);
 }

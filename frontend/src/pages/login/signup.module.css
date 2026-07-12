@@ -1,0 +1,53 @@
+.content{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.contentContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  height: 85%;
+  border-radius: 20px;
+  background-color: var(--background);
+}
+
+
+
+.formContainer{
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background-color: var(--opac2);
+  border-radius: 10px 0 0 10px;
+}
+.formContainer::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  transform: scale(1.03);
+  z-index: -1;
+  position: absolute;
+  top: -3%;
+  left: -3%;
+  background-color: var(--opac1);
+  border-radius: 10px;
+}
+
+.imgContainer{
+  width: 40%;
+  height: 100%;
+
+}
+
+.imgContainer img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 10px 10px 0;
+}
