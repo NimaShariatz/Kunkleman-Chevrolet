@@ -12,47 +12,112 @@
   align-items: center;
   justify-content: center;
   width: 85%;
-  height: 85%;
+  height: 90%;
   border-radius: 20px;
   background-color: var(--background);
-}
-
-
-
-.formContainer{
   position: relative;
-  width: 60%;
-  height: 100%;
-  background-color: var(--opac2);
-  padding: 1rem 2rem;
-  border-radius: 10px 0 0 10px;
 }
-.formContainer::after{
+.yellowSquare{
   content: '';
-  width: 100%;
-  height: 100%;
+  width: 57%;
+  height: 97%;
   transform: scale(1.03);
   z-index: -1;
   position: absolute;
-  top: -3%;
-  left: -3%;
+  top: -2%;
+  left: -2%;
   background-color: var(--opac1);
   border-radius: 10px;
 }
-.titleContainer h3{
+
+
+.formContainer{
+  width: 57%;
+  height: 100%;
+  background-color: var(--opac2);
+  padding-inline: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px 0 0 10px;
+  overflow-y: auto;
+}
+
+.titleContainer h2{
   font-family: 'Galada';
   text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--primary), -0.5px 3px 0 var(--primary), 0.5px 0.5px 0 var(--primary);
+  line-height: 1;
 }
-.titleContainer h3 span{
+.titleContainer h2 span{
   color: var(--primary);
   text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--text), -0.5px 3px 0 var(--text), 0.5px 0.5px 0 var(--text);
   margin-left: 7px;
+}
+
+.formContainer h5 {
+  padding-block: 0.6rem;
+}
+
+.rowColumn{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.formRow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.formRow div{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.formRow div label, .formItem label{
+  font-size: 12px;
+  font-weight: 800;
+  padding-bottom: 2px;
+}
+
+.formRow div input, .formItem input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: 2px solid rgba(230, 230, 230, 0.7);
+}
+.formRow div input:focus, .formItem input:focus{
+  outline: 2px solid var(--accent);
 
 }
 
+.formItem{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.signupButton{
+  background-color: var(--primary);
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding-block: 0.7rem;
+  padding-inline: 1rem;
+  border-radius: 8px;
+}
+
+
 
 .imgContainer{
-  width: 40%;
+  width: 43%;
   height: 100%;
 
 }
