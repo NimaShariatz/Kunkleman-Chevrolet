@@ -42,6 +42,12 @@ function Signup() {
     <div className={styles.contentContainer}>
 
       <div className={styles.formContainer}>
+        <div className={styles.titleContainer}>
+          <h3>Kunkleman<span>Chevrolet</span></h3>
+
+        </div>
+
+
         <form action={handleSubmit}>
           <label>First Name</label>
           <input required type="text" name="first_name" placeholder="first name" autoComplete="First Name" />

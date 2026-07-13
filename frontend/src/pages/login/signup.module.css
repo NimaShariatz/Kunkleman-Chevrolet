@@ -24,6 +24,7 @@
   width: 60%;
   height: 100%;
   background-color: var(--opac2);
+  padding: 1rem 2rem;
   border-radius: 10px 0 0 10px;
 }
 .formContainer::after{
@@ -38,6 +39,17 @@
   background-color: var(--opac1);
   border-radius: 10px;
 }
+.titleContainer h3{
+  font-family: 'Galada';
+  text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--primary), -0.5px 3px 0 var(--primary), 0.5px 0.5px 0 var(--primary);
+}
+.titleContainer h3 span{
+  color: var(--primary);
+  text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--text), -0.5px 3px 0 var(--text), 0.5px 0.5px 0 var(--text);
+  margin-left: 7px;
+
+}
+
 
 .imgContainer{
   width: 40%;
