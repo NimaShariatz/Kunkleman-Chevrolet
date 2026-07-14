@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { sendSignupInfo } from '../../api/signup'
 import styles from "./signup.module.css"
-import { cheviHalftone } from "../../constants"
+import { cheviHalftone, turbine } from "../../constants"
 
 function Signup() {
   const [error, setError] = useState("")
@@ -45,7 +45,9 @@ function Signup() {
       <div className={styles.formContainer}>
 
         <div className={styles.titleContainer}>
-          <h2>Kunkleman &nbsp;<span>Chevrolet</span></h2>
+         <h3>Kunkleman</h3>
+         <img src={turbine}/>
+         <h3>Chevrolet</h3>
         </div>
 
         <h5>Sign Up</h5>

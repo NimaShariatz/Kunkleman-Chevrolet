@@ -42,15 +42,26 @@
   overflow-y: auto;
 }
 
-.titleContainer h2{
+.titleContainer{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.titleContainer h3:nth-child(1){
   font-family: 'Galada';
   text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--primary), -0.5px 3px 0 var(--primary), 0.5px 0.5px 0 var(--primary);
   line-height: 1;
-  word-spacing: -4px;
+  padding-right: 2px;
 }
-.titleContainer h2 span{
+.titleContainer img{
+  width: 35px;
+  height: 35px;
+}
+.titleContainer h3:nth-child(3){
   color: var(--primary);
   text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--text), -0.5px 3px 0 var(--text), 0.5px 0.5px 0 var(--text);
+  padding-bottom: 1px;
 }
 
 .formContainer h5 {
@@ -142,15 +153,11 @@
     width: 100%;
   }
   .yellowSquare{
-    width: 100%;
+    display: none;
   }
 
   .imgContainer{
     display: none;
-  }
-
-  .formRow div label, .formItem label {
-    font-size: 10px;
   }
 
   .signupButton {
