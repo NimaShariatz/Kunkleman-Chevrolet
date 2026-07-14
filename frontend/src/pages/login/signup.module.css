@@ -46,11 +46,11 @@
   font-family: 'Galada';
   text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--primary), -0.5px 3px 0 var(--primary), 0.5px 0.5px 0 var(--primary);
   line-height: 1;
+  word-spacing: -4px;
 }
 .titleContainer h2 span{
   color: var(--primary);
   text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--text), -0.5px 3px 0 var(--text), 0.5px 0.5px 0 var(--text);
-  margin-left: 7px;
 }
 
 .formContainer h5 {
@@ -112,8 +112,11 @@
   padding-block: 0.7rem;
   padding-inline: 1rem;
   border-radius: 8px;
+  cursor: pointer;
 }
-
+.signupButton:active{
+  background-color: white;
+}
 
 
 .imgContainer{
@@ -127,4 +130,31 @@
   height: 100%;
   object-fit: cover;
   border-radius: 0 10px 10px 0;
+}
+
+
+@media (max-width: 720px) {/*for mobile view*/
+  .contentContainer{
+    width: 95%;
+  }
+
+  .formContainer{
+    width: 100%;
+  }
+  .yellowSquare{
+    width: 100%;
+  }
+
+  .imgContainer{
+    display: none;
+  }
+
+  .formRow div label, .formItem label {
+    font-size: 10px;
+  }
+
+  .signupButton {
+    font-size: 14px;
+  }
+
 }

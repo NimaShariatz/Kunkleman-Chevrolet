@@ -45,7 +45,7 @@ function Signup() {
       <div className={styles.formContainer}>
 
         <div className={styles.titleContainer}>
-          <h2>Kunkleman<span>Chevrolet</span></h2>
+          <h2>Kunkleman &nbsp;<span>Chevrolet</span></h2>
         </div>
 
         <h5>Sign Up</h5>
@@ -70,11 +70,6 @@ function Signup() {
           </div>
 
           <div className={styles.formItem}>
-            <label>Password</label>
-            <input required type="password" name="password" minLength={9} placeholder="Password" autoComplete="new-password" />
-          </div>
-
-          <div className={styles.formItem}>
             <label>Street Name</label>
             <input required type="text" name="street_name" placeholder="Street Name" />
           </div>
@@ -93,6 +88,12 @@ function Signup() {
             <label>Postal Code</label>
             <input required type="text" name="postal_code" placeholder="A1A 1A1" maxLength={7} />
           </div>
+
+          <div className={styles.formItem}>
+            <label>Password</label>
+            <input required type="password" name="password" minLength={9} placeholder="Password" autoComplete="new-password" />
+          </div>
+
           {error && <p>{error}</p>}
           <button className={styles.signupButton} type="submit">Sign Up</button>
          </div>
