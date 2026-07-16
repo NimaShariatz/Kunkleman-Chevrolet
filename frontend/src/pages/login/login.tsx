@@ -22,7 +22,15 @@ function Login() {
       })
       localStorage.setItem('access', res.data.access)
       localStorage.setItem('refresh', res.data.refresh)
-      navigate("/account")
+      
+      const meRes = await api.get('/me/') //ping to get user info
+      console.log(meRes)
+      if(meRes.data.user_type === 'A'){
+        navigate("/admin-panel")
+      } else {
+        navigate("/")
+      }
+
     } catch (err) {
       const errorMessage = axios.isAxiosError(err) ? err.response?.data?.detail : "Login failed"
       setError(errorMessage || "Login failed")
@@ -46,7 +54,7 @@ function Login() {
           <form action={handleSubmit}>
             <div className={styles.rowColumn}>
               <label>Email</label>
-              <input required type="username" name="username" placeholder="Email" autoComplete="email" />
+              <input required type="email" name="username" placeholder="Email" autoComplete="email" />
             </div>
             <div className={styles.rowColumn}>
               <label>Password</label>

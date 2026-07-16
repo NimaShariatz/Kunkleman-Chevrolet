@@ -57,12 +57,12 @@ function Signup() {
           <div className={styles.formRow}>
             <div>
               <label>First Name</label>
-              <input required type="text" name="first_name" placeholder="First Name" autoComplete="First Name" />
+              <input required type="text" name="first_name" placeholder="First Name" autoComplete="given-name" />
             </div>
 
             <div>
               <label>Last Name</label>
-              <input required type="text" name="last_name" placeholder="Last Name" autoComplete="Last Name" />
+              <input required type="text" name="last_name" placeholder="Last Name" autoComplete="family-name" />
             </div>
           </div>
 
@@ -73,22 +73,22 @@ function Signup() {
 
           <div className={styles.formItem}>
             <label>Street Name</label>
-            <input required type="text" name="street_name" placeholder="Street Name" />
+            <input required type="text" name="street_name" autoComplete="street-address" />
           </div>
 
           <div className={styles.formItem}>
             <label>City</label>
-            <input required type="text" name="city" placeholder="City" />
+            <input required type="text" name="city" placeholder="City" autoComplete="address-level2" />
           </div>
 
           <div className={styles.formItem}>
             <label>Province</label>
-            <input required type="text" name="province" placeholder="Province" />
+            <input required type="text" name="province" placeholder="Province" autoComplete="address-level1" />
           </div>
 
           <div className={styles.formItem}>
             <label>Postal Code</label>
-            <input required type="text" name="postal_code" placeholder="A1A 1A1" maxLength={7} />
+            <input required type="text" name="postal_code" placeholder="A1A 1A1" maxLength={7} autoComplete="postal-code" />
           </div>
 
           <div className={styles.formItem}>
