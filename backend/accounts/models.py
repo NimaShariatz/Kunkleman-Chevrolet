@@ -16,7 +16,7 @@ class User(AbstractUser):
   ]
   user_type = models.CharField(max_length=1, choices=USER_TYPES, default="U")
   
-  email = models.EmailField(blank=False)
+  email = models.EmailField(blank=False) # - the default is blank=False anyways...
   province = models.TextField()
   city = models.TextField()
   street_name = models.TextField()

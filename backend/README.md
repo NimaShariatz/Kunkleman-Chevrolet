@@ -4,8 +4,11 @@ After creating a virtual environment, did `python -m pip install Django`. You ca
 
 `python manage.py makemigrations` & `python manage.py migrate` -> commit changes from models to SQLite 
 
+`python manage.py startapp accounts` -> creates an app called members
 
 `python manage.py createsuperuser` -> creates django admin
+
+
 
 
 
