@@ -50,7 +50,7 @@
 
 .titleContainer h3:nth-child(1){
   font-family: 'Galada';
-  text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--primary), -0.5px 3px 0 var(--primary), 0.5px 0.5px 0 var(--primary);
+  text-shadow: var(--textShadow1);
   line-height: 1;
   padding-right: 2px;
 }
@@ -60,7 +60,7 @@
 }
 .titleContainer h3:nth-child(3){
   color: var(--primary);
-  text-shadow: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--text), -0.5px 3px 0 var(--text), 0.5px 0.5px 0 var(--text);
+  text-shadow: var(--textShadow2);
   padding-bottom: 1px;
 }
 

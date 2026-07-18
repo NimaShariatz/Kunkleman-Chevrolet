@@ -1,6 +1,6 @@
 :root {
   --text: #13120e;
-  --background: #fcfbf9;
+  --background: #fcfbf8;
   --primary: #ffd979;
   --secondary: #ffe6a8;
   --accent: #fbc742;
@@ -15,6 +15,8 @@
   --opac1: #fff9eb;
   --opac2: #fff3d4;
 
+  --textShadow1: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--primary), -0.5px 2px 0 var(--primary), 0.5px 0.5px 0 var(--primary);
+  --textShadow2: -0.5px -0.5px 0 var(--opac2), 0.5px -0.5px 0 var(--text), -0.5px 2px 0 var(--text), 0.5px 0.5px 0 var(--text);
   
 
 

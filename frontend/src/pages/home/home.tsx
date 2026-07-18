@@ -1,4 +1,6 @@
-
+import Menu from "../../components/menu/menu"
+import { homeBanner } from "../../constants"
+import styles from "./home.module.css"
 
 function Home() {
 
@@ -7,7 +9,11 @@ function Home() {
 
   return (
   <>
-    <p>ToDo</p>
+    <Menu/>
+    <div className={styles.bannerContainer}>
+      <img src={homeBanner} />
+      <p>Vehicle Listings</p>
+    </div>
   </>
   )
 }
