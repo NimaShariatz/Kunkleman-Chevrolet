@@ -68,3 +68,7 @@ class Vehicle(models.Model):
         max_stock = Vehicle.objects.aggregate(Max('stock_number'))['stock_number__max'] # queries the DB for the highest stock_number currently in the table. Returns something like {'stock_number__max': 42}
         self.stock_number = (max_stock or 0) + 1
       super().save(*args, **kwargs) #  calls Django's original save method to actually write the record to the database. This must always be called, otherwise nothing gets saved.
+      
+      
+    def __str__(self): # for admin panel naming
+      return f"{self.year} {self.brand} {self.model} — Stock #{self.stock_number}"
